@@ -1,0 +1,84 @@
+@model IEnumerable<LabMVC.Models.Student>
+
+@{
+    ViewData["Title"] = "Student Management";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between
+                align-items-center mb-4">
+
+        <h2>Student Management</h2>
+
+        <a asp-action="Create"
+           class="btn btn-outline-dark">
+            + Add Student
+        </a>
+
+    </div>
+
+    <hr />
+
+    <h5 class="mb-3">Student Records</h5>
+
+    <table class="table table-bordered
+                  table-hover text-center align-middle">
+
+        <thead>
+            <tr>
+                <th style="width: 10%;">ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th style="width: 20%;">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @if (Model.Any())
+            {
+                foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.Id</td>
+                        <td>@s.Name</td>
+                        <td>@s.Address</td>
+                        <td>@s.Email</td>
+
+                        <td>
+                            <a asp-action="Edit"
+                               asp-route-id="@s.Id"
+                               class="btn btn-sm btn-outline-dark">
+                                Edit
+                            </a>
+
+                            <a asp-action="Delete"
+                               asp-route-id="@s.Id"
+                               class="btn btn-sm btn-outline-secondary"
+                               onclick="return confirm('Delete this student?');">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4">
+                        No student records found.
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <div class="text-muted text-end">
+        Total Students: @Model.Count()
+    </div>
+
+</div>

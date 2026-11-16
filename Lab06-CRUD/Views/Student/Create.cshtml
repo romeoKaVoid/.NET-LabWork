@@ -1,0 +1,64 @@
+@model LabMVC.Models.Student
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<div class="container mt-4">
+
+    <h2>Add Student</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <form asp-action="Create" method="post">
+
+                <div class="mb-3">
+                    <label asp-for="Name"
+                           class="form-label">
+                        Student Name
+                    </label>
+
+                    <input asp-for="Name"
+                           class="form-control"
+                           placeholder="Enter student name" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Address"
+                           class="form-label">
+                        Address
+                    </label>
+
+                    <input asp-for="Address"
+                           class="form-control"
+                           placeholder="Enter address" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email"
+                           class="form-label">
+                        Email
+                    </label>
+
+                    <input asp-for="Email"
+                           class="form-control"
+                           placeholder="Enter email" />
+                </div>
+
+                <button type="submit"
+                        class="btn btn-outline-dark">
+                    Save Student
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">
+                    Back
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

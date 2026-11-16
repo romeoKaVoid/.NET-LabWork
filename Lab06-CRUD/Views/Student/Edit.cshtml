@@ -1,0 +1,63 @@
+@model LabMVC.Models.Student
+
+@{
+    ViewData["Title"] = "Edit Student";
+}
+
+<div class="container mt-4">
+
+    <h2>Edit Student</h2>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <form asp-action="Edit" method="post">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Name"
+                           class="form-label">
+                        Student Name
+                    </label>
+
+                    <input asp-for="Name"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Address"
+                           class="form-label">
+                        Address
+                    </label>
+
+                    <input asp-for="Address"
+                           class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email"
+                           class="form-label">
+                        Email
+                    </label>
+
+                    <input asp-for="Email"
+                           class="form-control" />
+                </div>
+
+                <button type="submit"
+                        class="btn btn-outline-dark">
+                    Update Student
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-outline-secondary">
+                    Back
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

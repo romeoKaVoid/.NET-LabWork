@@ -1,0 +1,27 @@
+@model LabMVC.Models.Player
+
+<h2>Player Registration</h2>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="All"></div>
+
+    Name: <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+
+    Age: <input asp-for="Age" />
+    <span asp-validation-for="Age"></span>
+    <br />
+
+    Country: <input asp-for="Country" />
+    <span asp-validation-for="Country"></span>
+    <br />
+
+    <button type="submit">Save</button>
+</form>
+
+<p>@ViewBag.Message</p>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
